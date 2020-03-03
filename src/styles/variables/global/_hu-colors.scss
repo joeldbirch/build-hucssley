@@ -1,0 +1,49 @@
+$hu-background-color-modules: (
+  core: (
+    base,
+    hover,
+  ),
+  pseudos: (
+    "::before",
+  )
+  // base,
+  // visited,
+  // hover,
+  // active,
+  // group-hover,
+  // group-state,
+  // state
+) !default;
+
+
+$jb-colors: hu-append((
+  contrast: (
+    contrast: unquote("var(--color-contrast, currentColor)"),
+  ),
+  neutral: hu-append(
+    hu-get($hu-colors, "neutral"),
+    (
+      600: #aeaeae,
+      900: #111,
+      1000: #000,
+    ),
+  ),
+  black: (
+    10: rgba(0, 0, 0, 0.1),
+    //   20: rgba(0, 0, 0, 0.2),
+    //   40: rgba(0, 0, 0, 0.4),
+    //   60: rgba(0, 0, 0, 0.6),
+    80: rgba(0, 0, 0, 0.8),
+  ),
+  white: (
+    //   20: rgba(255, 255, 255, 0.2),
+    //   40: rgba(255, 255, 255, 0.4),
+    //   70: rgba(255, 255, 255, 0.7),
+    95: rgba(255, 255, 255, 0.95),
+  ),
+  red: (
+    400: red,
+  ),
+), $hu-colors-keywords);
+
+$hu-colors: $jb-colors;

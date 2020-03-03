@@ -1,0 +1,27 @@
+$hu-spacing-scale: (
+  auto: auto,
+  0: 0,
+  px: 1px,
+  -px: -1px,
+  vw: 1vw,
+  50: hu-rem(2),
+  100: hu-rem(4),
+  150: hu-rem(6),
+  200: hu-rem(8),
+  250: hu-rem(10),
+  300: hu-rem(12),
+  350: hu-rem(14),
+  400: hu-rem(16),
+  450: hu-rem(20),
+  // 500: hu-rem(24),
+  // 525: hu-rem(26),
+  // 550: hu-rem(28),
+  600: hu-rem(24),
+  800: hu-rem(32),
+  1000: hu-rem(40),
+
+  "9/16": 56.25%,
+
+  "-50vw": -50vw,
+);
+

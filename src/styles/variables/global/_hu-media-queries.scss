@@ -1,0 +1,22 @@
+$hu-media-queries: (
+  tiny: hu-em(340),
+  max-palm: (max-w: hu-em(549)),
+  palm: hu-em(550),
+  widepalm: hu-em(680),
+  max-lap: (max-w: hu-em(767)),
+  lap: hu-em(768),
+  desk: hu-em(960),
+  bigdesk: hu-em(1400),
+  wall: hu-em(1800),
+  hover-primary: (
+    other: (
+      hover: hover,
+    ),
+    min-w: hu-em(768),
+  ),
+  hover-none: (
+    other: (
+      hover: none,
+    ),
+  ),
+);

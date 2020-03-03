@@ -4,11 +4,16 @@
   "private": true,
   "description": "Quickly add a standalone Hucssley build process.",
   "main": "index.js",
+  "config": {
+    "cssin": "src/styles/hucssley.css"
+  },
   "scripts": {
-    "styles:sass": "webpack --config webpack.config.js",
-    "styles:purge": "purgecss --config ./purgecss.config.js -o src/styles",
-    "styles:build": "npm run styles:sass && npm run styles:purge",
-    "styles:watch": "webpack --watch --config webpack.config.js"
+    "styles:sass": "npx webpack --config webpack.config.js",
+    "styles:purge": "npx purgecss --config ./purgecss.config.js -o src/styles",
+    "styles:dev": "npm run styles:sass && npm run styles:postcss && npm run styles:deploy",
+    "styles:production": "npm run styles:sass && npm run styles:purge && npm run styles:postcss && npm run styles:deploy",
+    "styles:postcss": "npx postcss $npm_package_config_cssin --replace --map -u autoprefixer",
+    "styles:deploy": "cp $npm_package_config_cssin static/ && cp ${npm_package_config_cssin}.map static/"
   },
   "keywords": [
     "css"
@@ -16,9 +21,12 @@
   "author": "Joel Birch <joeldbirch@gmail.com>",
   "license": "UNLICENSED",
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
     "css-loader": "^3.4.2",
     "fibers": "^4.0.2",
     "mini-css-extract-plugin": "^0.9.0",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
     "purgecss": "^2.1.0",
     "sass": "^1.26.2",
     "sass-loader": "^8.0.2",

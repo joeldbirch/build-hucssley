@@ -1,0 +1,184 @@
+/* purgecss start ignore */
+
+/* Box sizing rules */
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  background-color: $hu-reset-html-background-color;
+  color: $hu-reset-html-color;
+  font-family: $hu-reset-html-font-family;
+  line-height: $hu-reset-html-line-height;
+  overflow-y: $hu-reset-html-overflow-y;
+  -ms-overflow-style: scrollbar;
+  text-size-adjust: 100%;
+
+  @if ($hu-reset-html-font-size != 16px) {
+    font-size: $hu-reset-html-font-size;
+  }
+
+  @if ($hu-reset-html-font-smoothing) {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  // If you don't have a <main> tag here, add `flex-grow: 1` to whichever element you want to act as the strechy main area instead.
+  > main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Remove default padding */
+ul[class]:not([class*="padding"]),
+ol[class]:not([class*="padding"]) {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+pre {
+  margin: 0;
+}
+
+
+/* Set core body defaults */
+body {
+  // this breaks gatsby-link returning to top of page on click
+  // scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+
+  &[class]:not([class*="list-style"]) {
+    list-style: none;
+  }
+}
+
+@mixin anchor-base {
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  text-decoration-thickness: 0.0625em; // editor draft at time of development
+
+  @supports (text-decoration-skip-ink: auto) {
+    text-decoration-skip-ink: none;
+  }
+
+  // Anchor elements that don't have a class get default styles
+  &:not([class]) {
+    @include anchor-base;
+  }
+}
+
+span {
+  text-decoration: inherit;
+}
+
+// helper class so base styles can be used in addition to other classes
+.anchor-base {
+  @include anchor-base;
+}
+
+
+/* Make images easier to work with */
+img {
+  object-fit: cover;
+  vertical-align: bottom;
+
+  @if ($hu-reset-img-responsive) {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+textarea {
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  @if ($hu-reset-box-sizing != border-box) {
+    box-sizing: $hu-reset-box-sizing;
+  }
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+
+  &::-moz-focus-inner {
+    border: none;
+    padding: 0;
+  }
+}
+
+[disabled],
+:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* purgecss end ignore */
