@@ -3,9 +3,9 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './hucssley.js',
+  entry: './index.js',
   output: {
-    filename: 'hucssley.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'src/styles'),
   },
   module: {
